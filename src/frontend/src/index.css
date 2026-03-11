@@ -1,0 +1,120 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/assets/fonts/Outfit.woff2") format("woff2");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0.97 0.004 240;
+    --foreground: 0.18 0.02 265;
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.02 265;
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.02 265;
+    --primary: 0.42 0.12 255;
+    --primary-foreground: 0.99 0 0;
+    --secondary: 0.93 0.008 240;
+    --secondary-foreground: 0.18 0.02 265;
+    --muted: 0.94 0.006 240;
+    --muted-foreground: 0.52 0.018 250;
+    --accent: 0.88 0.02 240;
+    --accent-foreground: 0.18 0.02 265;
+    --destructive: 0.55 0.22 27;
+    --destructive-foreground: 0.99 0 0;
+    --border: 0.88 0.01 250;
+    --input: 0.88 0.01 250;
+    --ring: 0.42 0.12 255;
+    --radius: 0.625rem;
+    --chart-1: 0.42 0.12 255;
+    --chart-2: 0.65 0.15 160;
+    --chart-3: 0.7 0.18 40;
+    --chart-4: 0.55 0.22 27;
+    --chart-5: 0.62 0.14 300;
+    --sidebar: 0.97 0.004 240;
+    --sidebar-foreground: 0.18 0.02 265;
+    --sidebar-primary: 0.42 0.12 255;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.93 0.008 240;
+    --sidebar-accent-foreground: 0.18 0.02 265;
+    --sidebar-border: 0.88 0.01 250;
+    --sidebar-ring: 0.42 0.12 255;
+
+    /* Custom app tokens */
+    --spell-error-bg: oklch(0.97 0.03 27 / 0.4);
+    --spell-error-underline: oklch(0.55 0.22 27);
+    --grammar-error-bg: oklch(0.97 0.06 80 / 0.4);
+    --grammar-error-underline: oklch(0.72 0.16 80);
+    --hero-gradient-start: oklch(0.22 0.06 265);
+    --hero-gradient-end: oklch(0.28 0.08 230);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Outfit", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Bricolage Grotesque", sans-serif;
+  }
+}
+
+@layer components {
+  .spell-error {
+    background-color: var(--spell-error-bg);
+    text-decoration: underline;
+    text-decoration-color: var(--spell-error-underline);
+    text-decoration-style: wavy;
+    text-decoration-thickness: 2px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background-color 0.15s ease;
+  }
+
+  .spell-error:hover {
+    background-color: oklch(0.94 0.05 27 / 0.6);
+  }
+
+  .grammar-error {
+    background-color: var(--grammar-error-bg);
+    text-decoration: underline;
+    text-decoration-color: var(--grammar-error-underline);
+    text-decoration-style: wavy;
+    text-decoration-thickness: 2px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background-color 0.15s ease;
+  }
+
+  .grammar-error:hover {
+    background-color: oklch(0.92 0.1 80 / 0.6);
+  }
+
+  .error-span-active {
+    outline: 2px solid currentColor;
+    outline-offset: 1px;
+  }
+}
